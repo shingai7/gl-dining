@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GL Dining</title>
+<meta name="description" content="GL Dining, two Norman restaurants: blu downtown and The Library across from campus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@400;500;600&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="whimsy" aria-hidden="true"></div>
+
+<!-- ===================== HOME ===================== -->
+<div id="view-home" class="view">
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="#home">GL Dining<small>Norman, OK</small></a>
+    <nav class="pagelinks"><button data-go="blu">blu</button><button data-go="library">The Library</button><button data-go="careers">Careers</button></nav>
+  </div></header>
+  <main>
+    <section class="home-hero wrap centered">
+      <p class="eyebrow">Two Norman restaurants · One family</p>
+      <h1>GL Dining</h1>
+      <p class="tag">Welcome to the Good Life!</p>
+      <p class="lede">Wine flights and small plates downtown, or a cold draft on a shady patio across from campus. Choose a door.</p>
+    </section>
+    <section class="doors wrap" aria-label="Our restaurants">
+      <a class="door door-blu" href="#blu">
+        <img src="img/blu-sign.jpg" alt="blu's glowing blue neon sign at night">
+        <div class="door-text">
+          <p class="kicker">Downtown · since 2007</p>
+          <h2>blu</h2>
+          <p class="line">Fine wine &amp; food</p>
+          <div class="door-foot"><span class="chip" data-status="blu">Checking hours…</span><span class="enter">Step inside →</span></div>
+        </div>
+      </a>
+      <a class="door door-lib" href="#library">
+        <img src="img/library-patio.jpg" alt="The Library's shaded brick patio and green awning">
+        <div class="door-text">
+          <p class="kicker">Campus Corner · est. 1920</p>
+          <h2>The Library</h2>
+          <p class="line">Bar &amp; grill</p>
+          <div class="door-foot"><span class="chip" data-status="library">Checking hours…</span><span class="enter">Step inside →</span></div>
+        </div>
+      </a>
+    </section>
+    <section class="glance wrap" aria-label="Hours and locations">
+      <h2>At a glance</h2>
+      <div class="glance-grid">
+        <div class="g-head"></div><div class="g-head g-blu">blu</div><div class="g-head g-lib">The Library</div>
+        <div class="g-label">Address</div><div>201 S Crawford Ave<br>Norman, OK 73069</div><div>607 W Boyd St<br>Norman, OK 73069</div>
+        <div class="g-label">Phone</div><div class="num">(405) 360-4258</div><div class="num">(405) 366-7465</div>
+        <div class="g-label">Hours</div><div>Mon–Fri 11am–midnight<br>Sat–Sun 10am–midnight</div><div>Mon–Thu 11am–midnight<br>Fri 11am–2am · Sat 10am–2am<br>Sun 10am–midnight</div>
+        <div class="g-label">Happy hour</div><div>Daily 3–6pm</div><div>Daily 3–6pm</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===================== RESTAURANT PAGE (filled by script for blu / The Library) ===================== -->
+<div id="view-venue" class="view" hidden>
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="#home">← GL Dining</a>
+    <nav class="pagelinks"><button data-jump="specials">Specials</button><button data-jump="menu">Menu</button><button data-jump="visit">Visit</button><button data-go="careers" id="v-careers-nav">Careers</button></nav>
+  </div></header>
+  <main>
+    <section class="r-banner">
+      <img id="v-photo" alt="">
+      <div class="wrap r-banner-text">
+        <p class="eyebrow" id="v-eyebrow"></p>
+        <h1 id="v-name"></h1>
+        <p class="sub" id="v-sub"></p>
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="infobar">
+        <p class="lede" id="v-lede"></p>
+        <div class="facts">
+          <div><b>Address</b><span id="v-addr"></span></div>
+          <div><b>Phone</b><span class="num" id="v-phone"></span></div>
+          <div><b>Today</b><span id="v-today"></span></div>
+        </div>
+        <div class="actions"><button class="btn btn-accent" data-jump="menu">See the menu</button><a class="btn btn-line" id="v-dir" target="_blank" rel="noopener">Get directions</a></div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="specials">
+      <div class="block-head"><h2>Specials &amp; activities</h2></div>
+      <div class="specials" id="v-specials"></div>
+    </section>
+
+    <section class="block wrap" id="menu" style="padding-top:0">
+      <div class="block-head"><h2>Menu</h2><p class="eyebrow" id="v-menu-note"></p></div>
+      <div class="menu-wrap">
+        <div class="menu-tabs" role="tablist" id="v-tabs"></div>
+        <div class="menu-body">
+          <p class="menu-note" id="v-cat-note"></p>
+          <div class="items" id="v-items"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="visit" style="padding-top:0">
+      <div class="block-head"><h2>Visit</h2></div>
+      <div class="visit">
+        <div class="card">
+          <p class="eyebrow">Hours</p>
+          <table class="hours"><tbody id="v-hours"></tbody></table>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Find us</p>
+          <p style="font-size:20px;margin-top:8px" id="v-addr2"></p>
+          <p class="num" style="color:var(--muted)" id="v-phone2"></p>
+          <a class="btn btn-accent" style="margin-top:16px" id="v-dir2" target="_blank" rel="noopener">Open in Google Maps</a>
+          <div class="gallery" id="v-gallery"></div>
+        </div>
+      </div>
+      <div class="workhere card" id="v-work"></div>
+      <a class="crosslink" id="v-cross" href="#"></a>
+    </section>
+  </main>
+</div>
+
+
+<!-- ===================== CAREERS (both restaurants) ===================== -->
+<div id="view-careers" class="view" hidden>
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="#home">← GL Dining</a>
+    <nav class="pagelinks"><button data-go="blu">blu</button><button data-go="library">The Library</button></nav>
+  </div></header>
+  <main class="wrap">
+    <section class="home-hero" style="padding-bottom:20px">
+      <p class="eyebrow">Careers at GL Dining</p>
+      <h1 style="font-size:clamp(42px,7vw,76px)">Come work with us.</h1>
+      <p class="lede">We're a small Norman restaurant family, and we hire for both blu and The Library. Pick a spot, tell us a little about yourself, and we'll be in touch.</p>
+    </section>
+    <section class="jobs">
+      <article class="card job job-blu">
+        <h2>blu</h2>
+        <p class="muted">201 S Crawford Ave · wine bar &amp; kitchen</p>
+        <ul class="roles"><li>Server</li><li>Bartender</li><li>Host</li><li>Line cook</li><li>Dishwasher</li></ul>
+        <button class="btn btn-accent" data-apply="blu">Apply at blu</button>
+      </article>
+      <article class="card job job-lib">
+        <h2>The Library</h2>
+        <p class="muted">607 W Boyd St · bar &amp; grill</p>
+        <ul class="roles"><li>Bartender</li><li>Server</li><li>Cook</li><li>Barback</li><li>Door / host</li></ul>
+        <button class="btn btn-accent" data-apply="library">Apply at The Library</button>
+      </article>
+    </section>
+    <section class="perks">
+      <div><b>Flexible schedules</b><span>Shifts that work around classes</span></div>
+      <div><b>Shift meals</b><span>Eat well on the clock</span></div>
+      <div><b>Two places to grow</b><span>Move between blu and The Library</span></div>
+    </section>
+    <section id="apply" class="card applyform" style="scroll-margin-top:80px">
+      <h2 style="font-family:var(--f-home);font-size:34px">Application</h2>
+      <form id="jobForm" class="formgrid">
+        <label><span>Full name</span><input id="job-name" required></label>
+        <label><span>Email</span><input id="job-email" type="email" required></label>
+        <label><span>Phone</span><input id="job-phone" type="tel"></label>
+        <label><span>Restaurant</span><select id="job-venue"><option value="blu">blu</option><option value="library">The Library</option><option value="either">Either one</option></select></label>
+        <label><span>Position</span><select id="job-role"><option>Server</option><option>Bartender</option><option>Host</option><option>Cook</option><option>Barback</option><option>Dishwasher</option></select></label>
+        <fieldset><legend>When can you work?</legend>
+          <label class="check"><input type="checkbox" id="av-day"> Weekdays</label>
+          <label class="check"><input type="checkbox" id="av-night"> Nights</label>
+          <label class="check"><input type="checkbox" id="av-wknd"> Weekends</label>
+          <label class="check"><input type="checkbox" id="av-brunch"> Brunch</label>
+        </fieldset>
+        <label class="wide"><span>Experience &amp; anything else</span><textarea id="job-notes" rows="4"></textarea></label>
+        <label class="wide"><span>Resume (optional)</span><input id="job-resume" type="file"></label>
+        <div class="wide"><button class="btn btn-accent" type="submit">Submit application</button>
+        <p id="jobMsg" class="thanks" hidden>Thanks for applying! This is a class demo form, so nothing was sent.</p></div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b style="font-family:var(--f-home);font-size:20px">GL Dining</b><span style="color:var(--muted)">Welcome to the Good Life!</span></div>
+    <div><b style="color:var(--blu)">blu</b>201 S Crawford Ave, Norman<br><span class="num">(405) 360-4258</span></div>
+    <div><b style="color:var(--lib)">The Library</b>607 W Boyd St, Norman<br><span class="num">(405) 366-7465</span></div>
+  </div>
+  <div class="wrap fine">© 2026 GL Dining · Menu items and prices subject to change.</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
