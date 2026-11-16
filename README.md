@@ -5,23 +5,23 @@ This is our site for GL Dining, which is two restaurants in Norman owned by the 
 - **blu**: downtown, fine wine and food. 201 S Crawford Ave, Norman, OK 73069, (405) 360-4258
 - **The Library**: the bar and grill across from campus, open since 1920. 607 W Boyd St, Norman, OK 73069, (405) 366-7465
 
-We kept it simple and just used HTML, CSS, and JavaScript. No framework, nothing to install, no build step. That way GitHub Pages can just host the files the way they are.
+We kept it simple and just used HTML, CSS, and JavaScript. No framework, nothing to install, no build step. That way GitHub Pages can just host the files the way they are
 
 ## Run it locally
 
-Just open `index.html` in your browser. If you want to use a local server instead, run `python3 -m http.server` in this folder and open the address it gives you.
+Just open `index.html` in your browser. If you want to use a local server instead, run `python3 -m http.server` in this folder and open the address it gives you
 
 ## What is in the folder
 
-- `index.html`: the layout for all three views. It has the doctype, head, and body, and it links to `styles.css` and `script.js`.
-- `styles.css`: all our styling. We pulled this out of the original framework file.
-- `script.js`: the photos, restaurant info, menus, open/closed status, page switching, and the careers form.
+- `index.html`: the layout for all three views. It has the doctype, head, and body, and it links to `styles.css` and `script.js`
+- `styles.css`: all our styling. We pulled this out of the original framework file
+- `script.js`: the photos, restaurant info, menus, open/closed status, page switching, and the careers form
 
-We started from our team's framework file, `GL_Framework_2__1.html`. We didn't change any of the content, menus, hours, photos, or styling. We just split the CSS and JavaScript into their own files and added the doctype, html, head, and body tags, because the framework file started at the title tag and didn't have those.
+We started from our team's framework file, `GL_Framework_2__1.html`. We didn't change any of the content, menus, hours, photos, or styling. We just split the CSS and JavaScript into their own files and added the doctype, html, head, and body tags, because the framework file started at the title tag and didn't have those
 
 ## Pages and routes
 
-It's all one HTML file with three views. The hash at the end of the URL decides which one shows up.
+It's all one HTML file with three views. The hash at the end of the URL decides which one shows up
 
 | Route | View | What is on it |
 |---|---|---|
@@ -37,36 +37,36 @@ Menu categories we already have in the data:
 
 ## Navigation
 
-- There's a top bar with the GL Dining name that stays at the top on every page.
-- On the home page the nav has blu, The Library, and Careers.
-- On the restaurant pages the nav has Specials, Menu, Visit, and Careers, and clicking them scrolls you down to that part.
-- The `route()` function in `script.js` checks when the hash changes, shows the right view, and changes the page title to match.
+- There's a top bar with the GL Dining name that stays at the top on every page
+- On the home page the nav has blu, The Library, and Careers
+- On the restaurant pages the nav has Specials, Menu, Visit, and Careers, and clicking them scrolls you down to that part
+- The `route()` function in `script.js` checks when the hash changes, shows the right view, and changes the page title to match
 
 ## Design system
 
 Everything is set up in `:root` in `styles.css`:
 
-- Main colors: `--bg`, `--surface`, `--ink`, `--muted`, `--line`, and then `--gold`, `--peach`, and `--butter` for the home and careers pages.
-- blu colors: `--blu`, `--blu-2`, `--blu-soft`.
-- The Library colors: `--lib`, `--lib-2`, `--lib-soft`.
-- Open/closed colors: `--open` and `--closed`.
-- Fonts: Playfair Display on home, Quicksand for blu, Old Standard TT for The Library, and Figtree for regular text.
-- `.view-blu` and `.view-library` change the accent color, background, and heading font so each restaurant has its own look.
-- It works on smaller screens too (we have breakpoints down to 480px), and there's a prefers-reduced-motion rule for people who turn off animations.
+- Main colors: `--bg`, `--surface`, `--ink`, `--muted`, `--line`, and then `--gold`, `--peach`, and `--butter` for the home and careers pages
+- blu colors: `--blu`, `--blu-2`, `--blu-soft`
+- The Library colors: `--lib`, `--lib-2`, `--lib-soft`
+- Open/closed colors: `--open` and `--closed`
+- Fonts: Playfair Display on home, Quicksand for blu, Old Standard TT for The Library, and Figtree for regular text
+- `.view-blu` and `.view-library` change the accent color, background, and heading font so each restaurant has its own look
+- It works on smaller screens too (we have breakpoints down to 480px), and there's a prefers-reduced-motion rule for people who turn off animations
 
 ## Features already working
 
-- Both restaurants show if they're open or closed right now based on their hours, and it updates every minute.
-- The menus come from the `VENUES` data in `script.js`, so if you need to change a menu you just change the data, not the HTML.
-- Each restaurant page has specials, a photo gallery, a weekly hours table, and a Get directions link.
-- The careers form shows a confirmation message when you submit it. Since this is for class it doesn't actually send anywhere yet, and the page tells you that when you hit submit.
+- Both restaurants show if they're open or closed right now based on their hours, and it updates every minute
+- The menus come from the `VENUES` data in `script.js`, so if you need to change a menu you just change the data, not the HTML
+- Each restaurant page has specials, a photo gallery, a weekly hours table, and a Get directions link
+- The careers form shows a confirmation message when you submit it. Since this is for class it doesn't actually send anywhere yet, and the page tells you that when you hit submit
 
 ## How to edit
 
-- Menus, hours, specials, addresses, phone numbers: change `VENUES` in `script.js`. Each menu item looks like `["Name", "Price", "Description", "V GF"]`.
-- Colors and fonts: change `:root` in `styles.css`.
-- Anything else on the page that isn't restaurant data: change `index.html`.
-- The photos are stored right inside `script.js` in the `PHOTOS` list so they load without needing an image folder. The only problem is it makes `script.js` really big (around 578 KB), so we want to move them to an `img/` folder later.
+- Menus, hours, specials, addresses, phone numbers: change `VENUES` in `script.js`. Each menu item looks like `["Name", "Price", "Description", "V GF"]`
+- Colors and fonts: change `:root` in `styles.css`
+- Anything else on the page that isn't restaurant data: change `index.html`
+- The photos are stored right inside `script.js` in the `PHOTOS` list so they load without needing an image folder. The only problem is it makes `script.js` really big (around 578 KB), so we want to move them to an `img/` folder later
 
 ## Checkpoint checklist
 
@@ -86,13 +86,13 @@ Everything is set up in `:root` in `styles.css`:
 
 Our repo is https://github.com/shingai7/gl-dining. shingai7 owns it, it's public, and we made it empty (no README, .gitignore, or license).
 
-1. Go to Settings, then Collaborators, and invite jaxsonjennings, onyekwerechinedu04, presleymayer, and Cisn0015. Everyone has to accept their invite.
-2. Add to the repo piece by piece using the commit plan below. Everyone commits their own part from their own account.
-3. Turn on Pages: Settings, then Pages, then Deploy from a branch. Pick the `main` branch and the `/ (root)` folder.
+1. Go to Settings, then Collaborators, and invite jaxsonjennings, onyekwerechinedu04, presleymayer, and Cisn0015. Everyone has to accept their invite
+2. Add to the repo piece by piece using the commit plan below. Everyone commits their own part from their own account
+3. Turn on Pages: Settings, then Pages, then Deploy from a branch. Pick the `main` branch and the `/ (root)` folder
 
 ## Team commit plan
 
-We're building the repo in parts and each person owns one part. That way every commit actually adds something and everyone's work shows up.
+We're building the repo in parts and each person owns one part. That way every commit actually adds something and everyone's work shows up
 
 **shingai7, structure and navigation**
 - `Set up project structure with Home, venue, and Careers views`
